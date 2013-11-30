@@ -19,8 +19,7 @@ public class SignPdfMain {
 	public static void main(String[] args){		
 		SignPdfMain sign = new SignPdfMain();
 		sign.init(args);
-		sign.sign();	
-		System.out.println("noError");
+		sign.sign();			
 	}	
 
 	private void init(String[] args){
