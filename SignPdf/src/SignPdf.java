@@ -138,7 +138,12 @@ public class SignPdf {
     final PdfSignatureAppearance sap = stamper.getSignatureAppearance();
 
     // comment next lines to have an invisible signature
-    sap.setVisibleSignature(new Rectangle(450, 650, 500, 700), 1, null);
+    Rectangle cropBox = reader.getCropBox(1);
+    float width = 50;
+    float height = 50;
+    Rectangle rectangle = new Rectangle(cropBox.getRight(width)-20, cropBox.getTop(height)-20,cropBox.getRight()-20, cropBox.getTop()-20);
+    sap.setVisibleSignature(rectangle, 1, null);
+    //sap.setVisibleSignature(new Rectangle(450, 650, 500, 700), 1, null);
     sap.setLayer2Text("");
 
     final PdfSigGenericPKCS sig = new PdfSigGenericPKCS.PPKMS("BC");
